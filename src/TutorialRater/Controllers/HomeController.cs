@@ -31,7 +31,7 @@ namespace TutorialRater.Controllers
         }
 
         [HttpPost]
-        public ViewResult Create(TutorialEditViewModel model)
+        public IActionResult Create(TutorialEditViewModel model)
         {
             var tutorial = new Tutorial();
             tutorial.Url = model.Url;
@@ -39,7 +39,7 @@ namespace TutorialRater.Controllers
 
             _tutorialData.Add(tutorial);
 
-            return View("Details", tutorial);
+            return RedirectToAction("Details", new { id = tutorial.Id} );
         }
 
         public IActionResult Details(int id)
