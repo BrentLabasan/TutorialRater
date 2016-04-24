@@ -35,6 +35,9 @@ namespace TutorialRater
         {
             app.UseIISPlatformHandler();
 
+            //app.UseWelcomePage();
+            app.UseRuntimeInfoPage("/info");
+
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetGreeting();
