@@ -9,6 +9,7 @@ namespace TutorialRater.Services
     public interface ITutorialData
     {
         IEnumerable<Tutorial> GetAll();
+        Tutorial Get(int id);
     }
 
     // 
@@ -22,6 +23,11 @@ namespace TutorialRater.Services
                 new Tutorial {Id = 2, Url="http://ruby.com" },
                 new Tutorial {Id = 3, Url="http://python.com" }
             };
+        }
+
+        public Tutorial Get(int id)
+        {
+            return _tutorials.FirstOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Tutorial> GetAll()

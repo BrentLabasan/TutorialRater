@@ -1,0 +1,25 @@
+﻿@model TutorialRater.Entities.Tutorial
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Model.Url</title>
+</head>
+<body>
+    <h1>@Model.Url</h1>
+    <div>
+        @Html.ActionLink("Home", "Index")
+    </div>
+
+    @*<table>
+        @foreach (var tutorial in Model.Tutorials)
+        {
+            <tr>
+                <td>@tutorial.Id</td>
+                <td>@tutorial.Url</td>
+            </tr>
+
+        }
+
+    </table>*@
+</body>
+</html>

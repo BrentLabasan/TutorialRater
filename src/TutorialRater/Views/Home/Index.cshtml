@@ -11,7 +11,9 @@
         @foreach (var tutorial in Model.Tutorials)
         {
             <tr>
-                <td>@tutorial.Id</td>
+                <td>
+                @Html.ActionLink(tutorial.Id.ToString(), "Details", new { id=tutorial.Id})
+                </td>
                 <td>@tutorial.Url</td>
             </tr>
 

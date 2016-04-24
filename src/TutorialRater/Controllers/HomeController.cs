@@ -22,5 +22,15 @@ namespace TutorialRater.Controllers
 
             return View(model);
         }
+
+        public IActionResult Details(int id)
+        {
+            var model = _tutorialData.Get(id);
+            if (model==null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }
