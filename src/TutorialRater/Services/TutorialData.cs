@@ -10,12 +10,13 @@ namespace TutorialRater.Services
     {
         IEnumerable<Tutorial> GetAll();
         Tutorial Get(int id);
+        void Add(Tutorial newTutorial);
     }
 
     // 
     public class InMemoryTutorialData : ITutorialData
     {
-        public InMemoryTutorialData()
+        static InMemoryTutorialData()
         {
             _tutorials = new List<Tutorial>
             {
@@ -23,6 +24,13 @@ namespace TutorialRater.Services
                 new Tutorial {Id = 2, Url="http://ruby.com" },
                 new Tutorial {Id = 3, Url="http://python.com" }
             };
+        }
+
+        public void Add(Tutorial newTutorial)
+        {
+            newTutorial.Id = _tutorials.Max(r => r.Id) + 1;
+            _tutorials.Add(newTutorial);
+
         }
 
         public Tutorial Get(int id)
@@ -35,6 +43,6 @@ namespace TutorialRater.Services
             return _tutorials;
         }
 
-        List<Tutorial> _tutorials;
+        static List<Tutorial> _tutorials;
     }
 }

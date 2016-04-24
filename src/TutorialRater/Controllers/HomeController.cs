@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Mvc;
 using TutorialRater.ViewModels;
 using TutorialRater.Services;
+using TutorialRater.Entities;
 
 namespace TutorialRater.Controllers
 {
@@ -23,9 +24,22 @@ namespace TutorialRater.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ViewResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ViewResult Create(TutorialEditViewModel model)
+        {
+            var tutorial = new Tutorial();
+            tutorial.Url = model.Url;
+            tutorial.Format = model.Format;
+
+            _tutorialData.Add(tutorial);
+
+            return View("Details", tutorial);
         }
 
         public IActionResult Details(int id)

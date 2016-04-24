@@ -7,7 +7,13 @@
 <body>
     <h1>@Model.Url</h1>
     <div>
-        @Html.ActionLink("Home", "Index")
+        @Model.Id
+    </div>
+    <div>
+        Id: @Model.Format
+    </div>
+    <div>
+        Format: @Html.ActionLink("Home", "Index")
     </div>
 
     @*<table>
