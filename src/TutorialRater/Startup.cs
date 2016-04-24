@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using TutorialRater.Services;
+using Microsoft.AspNet.Routing;
 
 namespace TutorialRater
 {
@@ -46,7 +47,7 @@ namespace TutorialRater
 
             app.UseFileServer();
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoute);
 
             app.Run(async (context) =>
             {
@@ -54,6 +55,11 @@ namespace TutorialRater
                 var greeting = greeter.GetGreeting();
                 await context.Response.WriteAsync(greeting);
             });
+        }
+
+        private void ConfigureRoute(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
 
         // Entry point for the application.
