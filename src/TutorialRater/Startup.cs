@@ -47,7 +47,7 @@ namespace TutorialRater
 
             app.UseFileServer();
 
-            app.UseMvc(ConfigureRoute);
+            app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>
             {
@@ -57,7 +57,7 @@ namespace TutorialRater
             });
         }
 
-        private void ConfigureRoute(IRouteBuilder routeBuilder)
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
             routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
