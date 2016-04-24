@@ -5,11 +5,11 @@ namespace TutorialRater.Controllers
 {
     public class HomeController : Controller
     {
-        public ObjectResult Index()
+        public ViewResult Index()
         {
             var model = new Tutorial { Id = 1, Url = "http://django.com" };
 
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
