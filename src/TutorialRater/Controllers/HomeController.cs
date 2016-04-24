@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNet.Mvc;
+using TutorialRater.Models;
 
 namespace TutorialRater.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
-        public string Index()
+        public ObjectResult Index()
         {
-            return "Hello from Home Controller";
+            var model = new Tutorial { Id = 1, Url = "http://django.com" };
+
+            return new ObjectResult(model);
         }
     }
 }
