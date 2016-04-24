@@ -1,4 +1,4 @@
-﻿@model TutorialRater.Models.Tutorial
+﻿@model IEnumerable<TutorialRater.Models.Tutorial>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,8 +6,16 @@
 </head>
 <body>
     <h1>Welcome!</h1>
-    <div>
-        @Model.Url
-    </div>
+    <table>
+        @foreach (var tutorial in Model)
+        {
+            <tr>
+                <td>@tutorial.Id</td>
+                <td>@tutorial.Url</td>
+            </tr>
+
+        }
+
+    </table>
 </body>
 </html>
