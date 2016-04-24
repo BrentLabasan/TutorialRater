@@ -43,8 +43,7 @@ namespace TutorialRater
             //app.UseWelcomePage();
             app.UseRuntimeInfoPage("/info");
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            app.UseFileServer();
 
             app.Run(async (context) =>
             {
